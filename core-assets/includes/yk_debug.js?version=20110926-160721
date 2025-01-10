@@ -1,0 +1,106 @@
+
+var YkDebug = {};
+
+// init the debug functionality
+YkDebug.init = function()
+{
+	$("#yk_debug_toggle").click(function() {
+		$("#yk_debug").toggle(0, function() {
+			if ($(this).is(':hidden')) {
+				$("#yk_debug_toggle").removeClass("selected");
+			} else {
+				$("#yk_debug_toggle").addClass("selected");
+			}
+		});
+		return false;
+	});
+
+	$(".yk_debug_error a").click(function() {
+		$("#" + $(this).attr("id") + "_stack").toggle();
+		var spanElem = $(this).find("span");
+		if (spanElem.html() == "+") {
+			spanElem.html("-");
+		} else {
+			spanElem.html("+");
+		}
+		return false;
+	});
+
+	$("#yk_debug_list a").click(function() {
+		$("#" + $(this).attr("id") + "_stack").toggle();
+		var spanElem = $(this).find("span");
+		if (spanElem.html() == "+") {
+			spanElem.html("-");
+		} else {
+			spanElem.html("+");
+		}
+		return false;
+	});
+
+	// filter buttons
+	$("#yak_debug_filter_user").click(function() {
+		YkDebug.clearButtons();
+		$("#yak_debug_filter_user").addClass("selected");
+		$("#yk_debug_list>div").css({'opacity':'0.2'});
+		$("#yk_debug_list .yak_debug_user").css({'opacity':'1'});
+		return false;
+	});
+
+	$("#yak_debug_filter_system").click(function() {
+		YkDebug.clearButtons();
+		$("#yak_debug_filter_system").addClass("selected");
+		$("#yk_debug_list>div").css({'opacity':'0.2'});
+		$("#yk_debug_list .yak_debug_system").css({'opacity':'1'});
+		return false;
+	});
+
+	$("#yak_debug_filter_module").click(function() {
+		YkDebug.clearButtons();
+		$("#yak_debug_filter_module").addClass("selected");
+		$("#yk_debug_list>div").css({'opacity':'0.2'});
+		$("#yk_debug_list .yak_debug_module").css({'opacity':'1'});
+		return false;
+	});
+
+	$("#yak_debug_filter_hook").click(function() {
+		YkDebug.clearButtons();
+		$("#yak_debug_filter_hook").addClass("selected");
+		$("#yk_debug_list>div").css({'opacity':'0.2'});
+		$("#yk_debug_list .yak_debug_hook").css({'opacity':'1'});
+		return false;
+	});
+
+	$("#yak_debug_filter_sql").click(function() {
+		YkDebug.clearButtons();
+		$("#yak_debug_filter_sql").addClass("selected");
+		$("#yk_debug_list>div").css({'opacity':'0.2'});
+		$("#yk_debug_list .yak_debug_sql").css({'opacity':'1'});
+		return false;
+	});
+
+	$("#yak_debug_filter_cache").click(function() {
+		YkDebug.clearButtons();
+		$("#yak_debug_filter_cache").addClass("selected");
+		$("#yk_debug_list>div").css({'opacity':'0.2'});
+		$("#yk_debug_list .yak_debug_cache").css({'opacity':'1'});
+		return false;
+	});
+
+	$("#yak_debug_filter_all").click(function() {
+		YkDebug.clearButtons();
+		$("#yak_debug_filter_all").addClass("selected");
+		$("#yk_debug_list>div").css({'opacity':'1'});
+		return false;
+	});
+
+}
+
+YkDebug.clearButtons = function() {
+
+	$("#yk_debug_filter_buttons a").removeClass("selected");
+}
+
+// initialise when document is ready
+$(document).ready(function() {
+	YkDebug.init();
+});

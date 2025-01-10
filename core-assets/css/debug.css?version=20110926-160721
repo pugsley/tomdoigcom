@@ -1,0 +1,201 @@
+/* Debug styles
+--------------------------------------------*/
+
+
+/*
+ * Inline error styles
+ */
+div.yk_debug_error
+{
+    background-color: #a64f4b;
+    padding: 8px 8px;
+    line-height: 1.7em;
+    color: #fff !important;
+    font-size: 12px !important;
+    font-family: monospace !important;
+    border-radius: 3px;
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;     
+}
+
+div.yk_debug_error a
+{
+    line-height: 1.7em;
+    color: #fff !important;
+    text-decoration: underline;
+    font-size: 12px !important;
+}
+
+div.yk_debug_error h2
+{
+    color: #fff !important;
+    font-size: 13px !important;
+    margin: 4px 0 !important;
+    font-family: monospace !important;
+    font-weight: bold !important;
+}
+
+
+div.yk_debug_error p
+{
+    margin: 0;
+}
+
+div.yk_debug_error_stack
+{
+    color: #fff;
+    padding: 4px;
+    background-color:#a64f4b;
+    line-height: 1.6em;
+    font-size: 12px;
+    display: none;
+}
+
+div.yak_debug_error_info
+{
+    background-color:#6f9ece;
+    padding: 2px 6px;
+}
+
+div.yk_debug_stack_line
+{
+    padding-left: 20px;    
+}
+
+#yk_debug {
+    display: none;    
+}
+
+
+/*
+ * Container styles
+ */
+#yk_debug_container {
+    margin: 0 !important;
+    padding: 20px !important;
+    background-color: #fff !important;
+    border: 1px solid #eee !important;
+    color: #333 !important;
+    font-family: monospace !important;
+    line-height: 1.4em;
+    font-size: 12px;
+    text-align: left;
+}
+
+#yk_debug_container p, #yk_debug_container pre {
+    line-height: 1.4em;
+    font-size: 12px;        
+}
+
+#yk_debug_container h2
+{
+    margin: 20px 0 0 0;
+    font-size: 12px !important;
+    font-family: monospace !important;
+    font-weight: bold;
+    border: none;
+    background: none;
+    font-style: normal;
+}
+
+#yk_debug_container a
+{
+    color: #333;
+}
+
+#yk_debug_container .yak_debug_error a
+{
+    color: #DD4604 !important;
+}
+
+#yk_debug_container .yak_debug_sql a
+{
+    color: #1b1464 !important;
+}
+
+#yk_debug_container .yak_debug_system a
+{
+    color: #666 !important;
+}
+
+#yk_debug_container .yak_debug_hook a
+{
+    color: #476c7d !important;
+}
+
+#yk_debug_container .yak_debug_module a
+{
+    color: #a15e09 !important;
+}
+
+#yk_debug_container .yak_debug_user a
+{
+    color: #007236 !important;
+}
+
+#yk_debug_container span.alert
+{
+    color: red !important;
+}
+
+#yk_debug_container span.warning
+{
+    color: orange !important;
+}
+
+
+#yk_debug_container a.debug-expand
+{
+    text-decoration: none;
+}
+
+#yk_debug_container a.debug-expand span
+{
+    text-decoration: none;
+    font-size: 1.2em;
+    padding: 0px 4px;
+}
+
+#yk_debug_container div.o
+{
+    background-color: #eee;
+}
+
+#yk_debug_container .yk_debug_buttons
+{
+    margin-bottom: 20px;
+}
+
+#yk_debug_container .yk_debug_buttons a {
+    padding: 4px 8px;
+    background-color: #999;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 3px;
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;    
+}
+
+#yk_debug_container .yk_debug_buttons a:hover {
+    background-color: #333;
+}
+
+#yk_debug_container .yk_debug_buttons a.selected {
+    background-color: #666;
+}
+
+#yk_debug_container .yk_debug_list_stack {
+    display: none;
+    padding: 10px;
+}
+
+#yk_debug_list>div a {
+    padding: 4px;
+    display: block;
+}
+
+#yk_debug_list>div:hover {
+    background-color: #ffffde;
+}
+
+

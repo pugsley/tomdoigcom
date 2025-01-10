@@ -1,0 +1,946 @@
+
+html, body, div, span, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+abbr, address, cite, code, del, dfn, em, img, ins, kbd, q, samp,
+small, strong, sub, sup, var, b, i, dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+
+blockquote, q { quotes: none; }
+
+blockquote:before, blockquote:after,
+q:before, q:after { content: ""; content: none; }
+
+ins { background-color: #ff9; color: #000; text-decoration: none; }
+
+mark { background-color: #ff9; color: #000; font-style: italic; font-weight: bold; }
+
+del { text-decoration: line-through; }
+
+abbr[title], dfn[title] { border-bottom: 1px dotted; cursor: help; }
+
+table { border-collapse: collapse; border-spacing: 0; }
+
+hr { display: block; height: 1px; border: 0; border-top: 1px solid #ccc; margin: 1em 0; padding: 0; }
+
+input, select { vertical-align: middle; }
+
+
+/**
+ * Font normalization inspired by YUI Library's fonts.css: developer.yahoo.com/yui/
+ */
+
+body { font:13px/1.231 sans-serif; *font-size:small; } /* Hack retained to preserve specificity */
+select, input, textarea, button { font:99% sans-serif; }
+
+/* Normalize monospace sizing:
+   en.wikipedia.org/wiki/MediaWiki_talk:Common.css/Archive_11#Teletype_style_fix_for_Chrome */
+pre, code, kbd, samp { font-family: monospace, sans-serif; }
+
+
+/**
+ * Minimal base styles.
+ */
+
+/* Accessible focus treatment: people.opera.com/patrickl/experiments/keyboard/test */
+a:hover, a:active { outline: none; }
+
+ul, ol { margin-left: 2em; }
+ol { list-style-type: decimal; }
+
+/* Remove margins for navigation lists */
+nav ul, nav li { margin: 0; list-style:none; list-style-image: none; }
+
+small { font-size: 85%; }
+strong, th, b { font-weight: bold; }
+
+i, em { font-style: italic; }
+
+td { vertical-align: top; }
+
+/* Set sub, sup without affecting line-height: gist.github.com/413930 */
+sub, sup { font-size: 75%; line-height: 0; position: relative; }
+sup { top: -0.5em; }
+sub { bottom: -0.25em; }
+
+pre {
+  /* www.pathf.com/blogs/2008/05/formatting-quoted-code-in-blog-posts-css21-white-space-pre-wrap/ */
+  white-space: pre; white-space: pre-wrap; word-wrap: break-word;
+  padding: 15px;
+}
+
+textarea { overflow: auto; } /* www.sitepoint.com/blogs/2010/08/20/ie-remove-textarea-scrollbars/ */
+
+.ie6 legend, .ie7 legend { margin-left: -7px; }
+
+/* Align checkboxes, radios, text inputs with their label by: Thierry Koblentz tjkdesign.com/ez-css/css/base.css  */
+input[type="radio"] { vertical-align: text-bottom; }
+input[type="checkbox"] { vertical-align: bottom; }
+.ie7 input[type="checkbox"] { vertical-align: baseline; }
+.ie6 input { vertical-align: text-bottom; }
+
+/* Hand cursor on clickable input elements */
+label, input[type="button"], input[type="submit"], input[type="image"], button { cursor: pointer; }
+
+/* Webkit browsers add a 2px margin outside the chrome of form elements */
+button, input, select, textarea { margin: 0; }
+
+/* Colors for form validity */
+input:valid, textarea:valid   {  }
+input:invalid, textarea:invalid {
+   border-radius: 1px; -moz-box-shadow: 0px 0px 5px red; -webkit-box-shadow: 0px 0px 5px red; box-shadow: 0px 0px 5px red;
+}
+.no-boxshadow input:invalid, .no-boxshadow textarea:invalid { background-color: #f0dddd; }
+
+
+/* These selection declarations have to be separate
+   No text-shadow: twitter.com/miketaylr/status/12228805301
+   Also: hot pink! */
+::-moz-selection{ background: #FF5E99; color:#fff; text-shadow: none; }
+::selection { background:#FF5E99; color:#fff; text-shadow: none; }
+
+/* j.mp/webkit-tap-highlight-color */
+a:link { -webkit-tap-highlight-color: #FF5E99; }
+
+/* Make buttons play nice in IE:
+   www.viget.com/inspire/styling-the-button-element-in-internet-explorer/ */
+button {  width: auto; overflow: visible; }
+
+/* Bicubic resizing for non-native sized IMG:
+   code.flickr.com/blog/2008/11/12/on-ui-quality-the-little-things-client-side-image-resizing/ */
+.ie7 img { -ms-interpolation-mode: bicubic; }
+
+/**
+ * You might tweak these..
+ */
+
+body, select, input, textarea {
+  /* #444 looks better than black: twitter.com/H_FJ/statuses/11800719859 */
+  color: #444;
+  /* Set your base font here, to apply evenly */
+  /* font-family: Georgia, serif;  */
+}
+
+/* Headers (h1, h2, etc) have no default font-size or margin; define those yourself */
+h1, h2, h3, h4, h5, h6 { font-weight: bold; }
+
+a { color: #4083A9; }
+a:hover { color: #205f82; }
+
+
+
+
+
+
+
+
+
+
+/**
+ * Primary styles
+ *
+ * Author: Tama
+ */
+body {
+  min-width: 960px;
+}
+
+#container {
+    margin: 0 auto;
+    /*background: transparent url(/images/grid_16.png) scroll repeat-y -30px 0;*/
+}
+
+/**
+ * Generic styles
+ */
+
+h2 {
+    font-size: 22px;
+    font-family: Arial,sans-serif;
+    margin-bottom: 15px;
+    color: #1d1d1b;
+}
+
+h2 a {
+    color: #1d1d1b;
+}
+
+h3 {
+    font-size: 16px;
+}
+
+p {
+    line-height: 1.73em;
+}
+
+a {
+    text-decoration: none;
+}
+
+
+a.block {
+    display: block;
+    color: #fff;
+    padding:  4px 6px;
+    text-decoration: none;
+}
+
+a.block.subtle {
+    background-color: #ccc;
+    color: #fff;
+}
+
+a.block.subtle:hover {
+    color: #1d1d1b;
+}
+
+
+/**
+ * Header styles
+ */
+header {
+    border-bottom: 1px solid #ECEDF3;
+}
+
+header h1 {
+    font-family: 'PT Sans Narrow', sans-serif;
+    /*font-family: 'Yanone Kaffeesatz', sans-serif;*/
+    font-size: 82px;
+    text-transform: uppercase;
+    margin-bottom: 25px;
+}
+
+header h1 a {
+    color: #1D1D1B !important;
+}
+
+header .container_16 {
+    margin: 5px auto 0;
+    position: relative;
+}
+
+header aside {
+    margin-top: 25px;
+}
+
+/**
+ * Main nav
+ */
+nav#main {
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+}
+
+body#home nav#main, body#login nav#main, body#logout nav#main {
+    bottom: -1px;
+}
+
+#sections li {
+    margin-top: 65px;
+}
+
+nav#main #sections a {
+    display: block;
+    border-bottom: 1px solid #666;
+    color: #333;
+    padding: 4px 6px;
+    text-transform: lowercase;
+    text-decoration: none;
+}
+
+nav#main #sections a.subtle {
+    color: #999;
+    border-bottom: 1px solid #999;
+    text-align: right;
+}
+
+nav#main #sections a.subtle:hover {
+    color: #333;
+}
+
+nav#main #sections li.current {
+    margin-bottom: 0;
+    background: transparent url(/images/marker.png) scroll no-repeat 76px 25px;
+    padding-bottom: 4px;
+}
+
+nav#main #sections li.current.contact {
+    background: transparent url(/images/marker.png) scroll no-repeat 166px 25px;
+}
+
+nav#main #sections li.current a {
+    padding-bottom: 2px;
+    border-bottom: 3px solid #000;
+    color: #000;
+}
+
+nav#main #sections a:hover {
+    border-bottom: 3px solid #00c6ff;
+    padding-bottom: 2px;
+}
+
+
+#contact {
+    text-align: right;
+    color: #666;
+}
+
+#contact a {
+    color: #666666;
+    text-decoration: none;
+}
+
+#contact a:hover {
+    color: #4083A9;
+}
+
+/**
+ * Article
+ */
+
+article  {
+    margin: 20px 0 0 0;
+    padding-bottom: 20px;
+}
+
+article #main_photo {
+    line-height: 0;
+    margin-bottom: 15px;
+}
+
+article #writing {
+    xmargin-top: 15px;
+}
+
+article ul {
+    margin-bottom: 1em;
+}
+
+article li {
+    line-height: 1.73em;
+}
+
+article p {
+    margin-bottom: 1em;
+    font-size: 14px;
+}
+
+article aside.quote {
+    width: 200px;
+    padding: 0 0 15px 15px;
+    float: right;
+    margin: 0 0 10px 10px;
+    font-size: 28px;
+}
+
+article aside.quote, article aside.news_quote {
+    font-family: serif;
+    color: #FF5E99;
+    font-style: italic;
+}
+
+article aside.news_quote {
+    margin-bottom: 15px;
+    font-size: 20px;
+}
+
+article aside.quote span, article aside.news_quote span {
+    font-size: 18px;
+    font-style: normal;
+    display: block;
+    margin-top: 0.5em;
+}
+
+article aside.quote a, article aside.news_quote a {
+    color: #FF5E99;
+    border-bottom: 1px dotted #FF5E99;
+}
+
+article aside.quote a:hover, article aside.news_quote a:hover {
+    color: #831b41;
+    border-bottom: 1px dotted #831b41;
+}
+
+/**
+ * News specific
+ */
+
+article.news {
+    border-bottom: 1px solid #eee;
+    padding-bottom: 20px;
+}
+
+article.news aside.date {
+    font-size: 11px;
+    text-transform: uppercase;
+    margin-bottom: 2px;
+    margin-left: 1px;
+}
+
+article article {
+    margin: 0;
+}
+
+.news-archive-list {
+    list-style: none outside none;
+    padding: 0;
+    margin:  0;
+}
+
+.news-archive-list li {
+    position: relative;
+    padding: 2px 0 3px 85px;
+}
+
+.news-archive-list time {
+    position: absolute;
+    width: 65px;
+    left: 0;
+    padding: 0;
+}
+
+
+/**
+ * Project specific
+ */
+
+p#project_link {
+    margin-bottom: 15px;
+}
+
+#project_link a {
+    font-size: 22px;
+}
+
+
+/**
+ * Right column
+ */
+
+#right_column {
+    padding-top: 20px;
+    margin-top: -1px;
+    font-size: 10px;
+}
+
+#right_column h2 {
+    font-size: 14px;
+}
+
+#right_column nav ul {
+    margin-top: 10px;
+    font-size: 12px;
+
+}
+
+#right_column nav ul li a {
+    display: block;
+    margin-bottom: 10px;
+
+}
+
+#right_column .padding {
+    padding-left: 20px;
+    border-left:  1px solid #eee;
+    min-height: 500px;
+}
+
+/**
+ * Footer
+ */
+footer#global {
+    font-size: 11px;
+    line-height: 19px;
+    padding: 25px 0;
+    border-top: 1px solid #ECEDF3;
+}
+
+footer#global p {
+    font-size: 13px;
+    text-align: right;
+    color: #666;
+}
+
+footer#global ul {
+    list-style: none outside none;
+}
+
+footer#global ul li {
+    line-height: 1.5em;
+    margin-bottom: 0.5em;
+}
+
+footer#global ul li:first-child a {
+    font-weight: bold;
+    margin-bottom: 0;
+}
+
+footer#global a {
+    color: #666;
+    text-decoration: none;
+}
+
+footer#global a:hover {
+    color: #205f82;
+}
+
+
+/* Grid system
+----------------------------------------------------------------------------------------------------*/
+
+.container_12,
+.container_16 {
+  margin-left: auto;
+  margin-right: auto;
+  width: 960px;
+}
+
+
+.grid_1,
+.grid_2,
+.grid_3,
+.grid_4,
+.grid_5,
+.grid_6,
+.grid_7,
+.grid_8,
+.grid_9,
+.grid_10,
+.grid_11,
+.grid_12,
+.grid_13,
+.grid_14,
+.grid_15,
+.grid_16 {
+	display:inline;
+	float: left;
+	position: relative;
+	margin-left: 10px;
+	margin-right: 10px;
+}
+
+
+
+.push_1, .pull_1,
+.push_2, .pull_2,
+.push_3, .pull_3,
+.push_4, .pull_4,
+.push_5, .pull_5,
+.push_6, .pull_6,
+.push_7, .pull_7,
+.push_8, .pull_8,
+.push_9, .pull_9,
+.push_10, .pull_10,
+.push_11, .pull_11,
+.push_12, .pull_12,
+.push_13, .pull_13,
+.push_14, .pull_14,
+.push_15, .pull_15,
+.push_16, .pull_16 {
+	position:relative;
+}
+
+
+/* Grid >> Children (Alpha ~ First, Omega ~ Last)
+----------------------------------------------------------------------------------------------------*/
+
+.alpha {
+	margin-left: 0;
+}
+
+.omega {
+	margin-right: 0;
+}
+
+/* Grid >> 16 Columns
+----------------------------------------------------------------------------------------------------*/
+
+
+.container_16 .grid_1 {
+	width:40px;
+}
+
+.container_16 .grid_2 {
+	width:100px;
+}
+
+.container_16 .grid_3 {
+	width:160px;
+}
+
+.container_16 .grid_4 {
+	width:220px;
+}
+
+.container_16 .grid_5 {
+	width:280px;
+}
+
+.container_16 .grid_6 {
+	width:340px;
+}
+
+.container_16 .grid_7 {
+	width:400px;
+}
+
+.container_16 .grid_8 {
+	width:460px;
+}
+
+.container_16 .grid_9 {
+	width:520px;
+}
+
+.container_16 .grid_10 {
+	width:580px;
+}
+
+.container_16 .grid_11 {
+	width:640px;
+}
+
+.container_16 .grid_12 {
+	width:700px;
+}
+
+.container_16 .grid_13 {
+	width:760px;
+}
+
+.container_16 .grid_14 {
+	width:820px;
+}
+
+.container_16 .grid_15 {
+	width:880px;
+}
+
+.container_16 .grid_16 {
+	width:940px;
+}
+
+
+
+
+/* Prefix Extra Space >> 16 Columns
+----------------------------------------------------------------------------------------------------*/
+
+
+.container_16 .prefix_1 {
+	padding-left:60px;
+}
+
+.container_16 .prefix_2 {
+	padding-left:120px;
+}
+
+.container_16 .prefix_3 {
+	padding-left:180px;
+}
+
+.container_16 .prefix_4 {
+	padding-left:240px;
+}
+
+.container_16 .prefix_5 {
+	padding-left:300px;
+}
+
+.container_16 .prefix_6 {
+	padding-left:360px;
+}
+
+.container_16 .prefix_7 {
+	padding-left:420px;
+}
+
+.container_16 .prefix_8 {
+	padding-left:480px;
+}
+
+.container_16 .prefix_9 {
+	padding-left:540px;
+}
+
+.container_16 .prefix_10 {
+	padding-left:600px;
+}
+
+.container_16 .prefix_11 {
+	padding-left:660px;
+}
+
+.container_16 .prefix_12 {
+	padding-left:720px;
+}
+
+.container_16 .prefix_13 {
+	padding-left:780px;
+}
+
+.container_16 .prefix_14 {
+	padding-left:840px;
+}
+
+.container_16 .prefix_15 {
+	padding-left:900px;
+}
+
+
+
+/* Suffix Extra Space >> 16 Columns
+----------------------------------------------------------------------------------------------------*/
+
+
+.container_16 .suffix_1 {
+	padding-right:60px;
+}
+
+.container_16 .suffix_2 {
+	padding-right:120px;
+}
+
+.container_16 .suffix_3 {
+	padding-right:180px;
+}
+
+.container_16 .suffix_4 {
+	padding-right:240px;
+}
+
+.container_16 .suffix_5 {
+	padding-right:300px;
+}
+
+.container_16 .suffix_6 {
+	padding-right:360px;
+}
+
+.container_16 .suffix_7 {
+	padding-right:420px;
+}
+
+.container_16 .suffix_8 {
+	padding-right:480px;
+}
+
+.container_16 .suffix_9 {
+	padding-right:540px;
+}
+
+.container_16 .suffix_10 {
+	padding-right:600px;
+}
+
+.container_16 .suffix_11 {
+	padding-right:660px;
+}
+
+.container_16 .suffix_12 {
+	padding-right:720px;
+}
+
+.container_16 .suffix_13 {
+	padding-right:780px;
+}
+
+.container_16 .suffix_14 {
+	padding-right:840px;
+}
+
+.container_16 .suffix_15 {
+	padding-right:900px;
+}
+
+
+
+/* Push Space >> 16 Columns
+----------------------------------------------------------------------------------------------------*/
+
+
+.container_16 .push_1 {
+	left:60px;
+}
+
+.container_16 .push_2 {
+	left:120px;
+}
+
+.container_16 .push_3 {
+	left:180px;
+}
+
+.container_16 .push_4 {
+	left:240px;
+}
+
+.container_16 .push_5 {
+	left:300px;
+}
+
+.container_16 .push_6 {
+	left:360px;
+}
+
+.container_16 .push_7 {
+	left:420px;
+}
+
+.container_16 .push_8 {
+	left:480px;
+}
+
+.container_16 .push_9 {
+	left:540px;
+}
+
+.container_16 .push_10 {
+	left:600px;
+}
+
+.container_16 .push_11 {
+	left:660px;
+}
+
+.container_16 .push_12 {
+	left:720px;
+}
+
+.container_16 .push_13 {
+	left:780px;
+}
+
+.container_16 .push_14 {
+	left:840px;
+}
+
+.container_16 .push_15 {
+	left:900px;
+}
+
+
+
+/* Pull Space >> 16 Columns
+----------------------------------------------------------------------------------------------------*/
+
+
+.container_16 .pull_1 {
+	left:-60px;
+}
+
+.container_16 .pull_2 {
+	left:-120px;
+}
+
+.container_16 .pull_3 {
+	left:-180px;
+}
+
+.container_16 .pull_4 {
+	left:-240px;
+}
+
+.container_16 .pull_5 {
+	left:-300px;
+}
+
+.container_16 .pull_6 {
+	left:-360px;
+}
+
+.container_16 .pull_7 {
+	left:-420px;
+}
+
+.container_16 .pull_8 {
+	left:-480px;
+}
+
+.container_16 .pull_9 {
+	left:-540px;
+}
+
+.container_16 .pull_10 {
+	left:-600px;
+}
+
+.container_16 .pull_11 {
+	left:-660px;
+}
+
+.container_16 .pull_12 {
+	left:-720px;
+}
+
+.container_16 .pull_13 {
+	left:-780px;
+}
+
+.container_16 .pull_14 {
+	left:-840px;
+}
+
+.container_16 .pull_15 {
+	left:-900px;
+}
+
+
+
+
+/* `Clear Floated Elements
+----------------------------------------------------------------------------------------------------*/
+
+/* http://sonspring.com/journal/clearing-floats */
+
+.clear {
+  clear: both;
+  display: block;
+  overflow: hidden;
+  visibility: hidden;
+  width: 0;
+  height: 0;
+}
+
+/* http://www.yuiblog.com/blog/2010/09/27/clearfix-reloaded-overflowhidden-demystified */
+
+.clearfix:before,
+.clearfix:after {
+  content: '\0020';
+  display: block;
+  overflow: hidden;
+  visibility: hidden;
+  width: 0;
+  height: 0;
+}
+
+.clearfix:after {
+  clear: both;
+}
+
+/*
+  The following zoom:1 rule is specifically for IE6 + IE7.
+  Move to separate stylesheet if invalid CSS is a problem.
+*/
+
+.clearfix {
+  zoom: 1;
+}
+
+
